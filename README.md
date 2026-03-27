@@ -46,7 +46,7 @@ $$VitalityScore = \left( \frac{\text{Completed Tasks}}{\text{Total Tasks}} \righ
 
 1.  **Clone the repository:**
     ```bash
-    git clone [https://github.com/YOUR_USERNAME/smart-todo-health.git](https://github.com/YOUR_USERNAME/smart-todo-health.git)
+    git clone [https://github.com/YOUR_USERNAME/smart-todo-health.git](https://github.com/rutuja0108/smart-todo-health.git)
     ```
 2.  **Navigate to the folder:**
     ```bash
