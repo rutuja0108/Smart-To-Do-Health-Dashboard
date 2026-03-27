@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern To-Do & Vitality Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body class="theme-midnight-blue">
+    <div class="container">
+        <div class="todo-app">
+            
+            <header>
+                <h1>Welcome Back <span id="wave">👋</span></h1>
+                <div class="theme-switcher">
+                    <button class="theme-toggle" id="theme-toggle" title="Change Theme">
+                        <i class="fas fa-palette"></i>
+                    </button>
+                    <div class="theme-menu" id="theme-menu">
+                        <button class="theme-option" data-theme="theme-midnight-blue">
+                            <span class="color-dot" style="background:#0f2027"></span> Midnight Blue
+                        </button>
+                        <button class="theme-option" data-theme="theme-sakura-pink">
+                            <span class="color-dot" style="background:#ff9a9e"></span> Sakura Pink
+                        </button>
+                        <button class="theme-option" data-theme="theme-emerald-forest">
+                            <span class="color-dot" style="background:#134e5e"></span> Emerald Forest
+                        </button>
+                        <button class="theme-option" data-theme="theme-cyberpunk-gold">
+                            <span class="color-dot" style="background:#f8c300"></span> Cyberpunk Gold
+                        </button>
+                    </div>
+                </div>
+            </header>
+
+            <div class="dashboards-wrapper">
+                <!-- Task Dashboard -->
+                <div class="dashboard task-dash">
+                    <div class="dash-header">
+                        <span class="date-display" id="date-display">Monday, Jan 1</span>
+                        <span class="progress-text" id="progress-text">0% Done</span>
+                    </div>
+                    <div class="progress-container">
+                        <div class="progress-bar" id="progress-bar"></div>
+                    </div>
+                    <div class="quick-stats">
+                        <div class="stat-box">
+                            <span id="stat-total">0</span> Total Tasks
+                        </div>
+                        <div class="stat-box">
+                            <span id="stat-completed">0</span> Completed
+                        </div>
+                        <div class="stat-box">
+                            <span id="stat-pending">0</span> Pending
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Vitality Dashboard -->
+                <div class="dashboard vitality-dash" id="vitality-card">
+                    <div class="dash-header">
+                        <span class="date-display" style="color:var(--vitality-color); font-weight:700; font-size:15px; letter-spacing:0.5px;">
+                            <i class="fas fa-bolt"></i> Vitality Score
+                        </span>
+                        <button id="reset-day-btn" class="health-btn" title="Archive Day & Reset">
+                            <i class="fas fa-redo-alt"></i> Reset Day
+                        </button>
+                    </div>
+                    
+                    <div class="vitality-content">
+                        <div class="vitality-info">
+                            <div class="status-badge" id="vitality-badge">Resting</div>
+                            <div class="status-msg" id="vitality-msg">Add tasks to energize your day!</div>
+                        </div>
+                        <div class="vitality-score-huge" id="vitality-score-text">---</div>
+                    </div>
+                    
+                    <div class="mental-clarity-section">
+                        <div class="mc-header">
+                            <span>Mental Clarity</span> 
+                            <span id="mc-percent">0%</span>
+                        </div>
+                        <div class="progress-container mc-container">
+                            <div class="progress-bar vitality-bar" id="mc-bar" style="width:0%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <form id="todo-form">
+                <div class="input-group">
+                    <input type="text" id="todo-input" placeholder="What needs to be done?" autocomplete="off" required>
+                </div>
+                <div class="action-group">
+                    <div class="datetime-wrapper">
+                        <i class="fas fa-calendar-alt calendar-icon"></i>
+                        <input type="datetime-local" id="todo-datetime" title="Set Reminder">
+                    </div>
+                    <button type="submit" id="add-btn"><i class="fas fa-plus"></i> Add Task</button>
+                </div>
+            </form>
+            
+            <ul id="todo-list">
+                <!-- Tasks will be injected here -->
+            </ul>
+            
+            <div class="stats">
+                <span id="items-left">0 items left</span>
+                <div class="footer-actions">
+                    <button id="clear-completed">Clear Completed</button>
+                    <button id="clear-all" class="clear-all-btn">Clear All</button>
+                </div>
+            </div>
+
+            <!-- Weekly History Section -->
+            <div class="history-section">
+                <div class="history-header" id="toggle-history">
+                    <h3><i class="fas fa-chart-line"></i> Weekly History</h3>
+                    <i class="fas fa-chevron-down" id="history-chevron"></i>
+                </div>
+                <ul id="history-list" class="history-list">
+                    <!-- History entries populate here -->
+                </ul>
+            </div>
+            
+        </div>
+    </div>
+    
+    <!-- Audio for reminder notification -->
+    <audio id="notification-sound" src="https://assets.mixkit.co/active_storage/sfx/2869/2869-preview.mp3" preload="auto"></audio>
+
+    <script src="script.js"></script>
+</body>
+</html>
